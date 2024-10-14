@@ -1,0 +1,18 @@
+services:
+  php:
+    container_name: hellocse-php
+    ports:
+      - "80:80"
+      - "443:443"
+      - "443:443/udp"
+
+    env_file:
+      - .env.local
+  db:
+    container_name: hellocse-db
+    environment:
+      MYSQL_DATABASE: hellocse
+      MYSQL_USER: hellocse
+      MYSQL_PASSWORD: hellocse
+    ports:
+      - "3306:3306"

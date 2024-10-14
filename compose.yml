@@ -1,0 +1,26 @@
+services:
+  php:
+    build:
+      context: docker/php
+      dockerfile: Dockerfile
+    user: $UID:$GID
+
+    volumes:
+      - ./:/app
+      - caddy_data:/data
+      - caddy_config:/config
+    # comment the following line in production, it allows to have nice human-readable logs in dev
+    tty: true
+
+  db:
+    image: mariadb:10.11.7-jammy
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+    volumes:
+      - db_data:/var/lib/mysql
+
+# Volumes needed for Caddy certificates and configuration
+volumes:
+  caddy_data:
+  caddy_config:
+  db_data:

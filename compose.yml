@@ -13,11 +13,10 @@ services:
     tty: true
 
   db:
-    image: mariadb:10.11.7-jammy
-    environment:
-      MYSQL_ROOT_PASSWORD: root
+    image: mysql:8.0.31
     volumes:
       - db_data:/var/lib/mysql
+
 
 # Volumes needed for Caddy certificates and configuration
 volumes:

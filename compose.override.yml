@@ -6,13 +6,12 @@ services:
       - "443:443"
       - "443:443/udp"
 
-    env_file:
-      - .env.local
   db:
     container_name: hellocse-db
     environment:
+      MYSQL_ROOT_PASSWORD: root
       MYSQL_DATABASE: hellocse
       MYSQL_USER: hellocse
       MYSQL_PASSWORD: hellocse
     ports:
-      - "3306:3306"
+      - "3306:3306"  # Pour exposer le port MySQL sur l'hôte si nécessaire

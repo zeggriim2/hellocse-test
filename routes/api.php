@@ -1,6 +1,7 @@
 <?php
 
-use Illuminate\Http\Request;
+use App\Http\Controllers\Api\AdminController;
+use App\Http\Controllers\Api\ProfilController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,6 +15,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
+Route::post('/register', [AdminController::class, 'register']);
+Route::post('/login', [AdminController::class, 'login']);
+
+Route::middleware('auth:sanctum')->group(function () {
+    Route::post('/profils', [ProfilController::class, 'create']);
+    Route::put('/profils/{profil}', [ProfilController::class, 'update']);
+    Route::delete('/profils/{profil}', [ProfilController::class, 'delete']);
 });
+
+Route::get('/profils', [ProfilController::class, 'index']);

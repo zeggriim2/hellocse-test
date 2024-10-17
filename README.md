@@ -95,5 +95,5 @@ php artisan migrate:fresh --seed
 
 
 ## Contributeurs
-- [Lilian Github](#https://github.com/zeggriim2)
-- [Lilian Gitlab](#https://gitlab.com/zeggriim1)
+- [Lilian Github](https://github.com/zeggriim2)
+- [Lilian Gitlab](https://gitlab.com/zeggriim1)

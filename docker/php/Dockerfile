@@ -2,8 +2,9 @@ FROM dunglas/frankenphp
 
 # Installer les extensions PHP nécessaires pour MariaDB
 RUN apt-get update && apt-get install -y \
-    libmariadb-dev unzip zip\
-    && docker-php-ext-install pdo pdo_mysql
+    libmariadb-dev unzip zip libpng-dev libjpeg62-turbo-dev \
+    && docker-php-ext-configure gd --with-jpeg \
+    && docker-php-ext-install pdo pdo_mysql gd
 
 # Composer
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/bin/ --filename=composer

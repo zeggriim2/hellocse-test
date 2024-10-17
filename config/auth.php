@@ -14,8 +14,8 @@ return [
     */
 
     'defaults' => [
-        'guard' => 'web',
-        'passwords' => 'users',
+        'guard' => 'api',
+        'passwords' => 'administrateurs',
     ],
 
     /*
@@ -36,7 +36,7 @@ return [
     */
 
     'guards' => [
-        'web' => [
+        'api' => [
             'driver' => 'session',
             'provider' => 'users',
         ],
@@ -62,13 +62,8 @@ return [
     'providers' => [
         'users' => [
             'driver' => 'eloquent',
-            'model' => App\Models\User::class,
+            'model' => App\Models\Administrateur::class,
         ],
-
-        // 'users' => [
-        //     'driver' => 'database',
-        //     'table' => 'users',
-        // ],
     ],
 
     /*
